@@ -4,4 +4,10 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse('article')
+    return render(
+        request,
+        'article/index.html',
+        context={
+            'title': 'Templates',
+            'content': 'Testing Django templates'}
+    )
