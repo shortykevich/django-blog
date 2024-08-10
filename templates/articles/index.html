@@ -7,12 +7,12 @@
     <table>
     <thead>
         <th>Название</th>
-        <th>Описание</th>
+        <th>Контент</th>
     </thead>
     <tbody>
     {% for article in articles %}
         <tr>
-            <td>{{ article.title }}</td>
+            <td><a href="{% url 'articles:article' tag='python' article_id=article.id %}">{{ article.title }}</a></td>
             <td>{{ article.content }}</td>
         </tr>
     {% endfor %}
