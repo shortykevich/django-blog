@@ -4,5 +4,5 @@ from django_blog.articles import views
 
 
 urlpatterns = [
-    path('', views.index),
+    path('', views.ArticleListView.as_view(), name='articles'),
 ]

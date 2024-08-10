@@ -3,10 +3,11 @@
 {% block title %}Article Index Page{% endblock %}
 
 {% block content %}
+    <h2>Список статей:</h2>
     <table>
     <thead>
-        <th>Title</th>
-        <th>Content</th>
+        <th>Название</th>
+        <th>Описание</th>
     </thead>
     <tbody>
     {% for article in articles %}
