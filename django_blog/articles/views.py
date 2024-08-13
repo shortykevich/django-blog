@@ -1,4 +1,7 @@
 from django.views.generic import TemplateView
+from django.views.decorators.http import require_http_methods
+from .models import Article
+from django.http import Http404
 
 
 class ArticlesListView(TemplateView):
