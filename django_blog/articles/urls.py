@@ -7,5 +7,5 @@ app_name = 'articles'
 
 urlpatterns = [
     path('', views.ArticlesIndexView.as_view(), name='list'),
-    path('<str:tag>/<int:article_id>/', views.ArticleDetailView.as_view(), name='article'),
+    path('<int:id>/', views.ArticleView.as_view(), name='article'),
 ]

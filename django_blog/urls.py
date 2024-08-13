@@ -20,7 +20,7 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    path('', views.HomeRedirectView.as_view(), name='home'),
+    path('', views.HomeView.as_view(), name='home'),
     path('about/', views.AboutView.as_view(), name='about'),
     path('admin/', admin.site.urls),
     path('articles/', include('django_blog.articles.urls', namespace='articles'))
