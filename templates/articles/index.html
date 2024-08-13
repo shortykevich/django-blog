@@ -2,20 +2,11 @@
 
 {% block title %}Article Index Page{% endblock %}
 
+
 {% block content %}
-    <h2>Список статей:</h2>
-    <table>
-    <thead>
-        <th>Название</th>
-        <th>Контент</th>
-    </thead>
-    <tbody>
+    <h1>Список статей</h1>
     {% for article in articles %}
-        <tr>
-            <td><a href="{% url 'articles:article' tag='python' article_id=article.id %}">{{ article.title }}</a></td>
-            <td>{{ article.content }}</td>
-        </tr>
+        <h2>{{ article.name }}</h2>
+        <div>{{ article.body|slice:":200" }}</div>
     {% endfor %}
-    </tbody>
-    </table>
 {% endblock %}
