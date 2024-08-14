@@ -7,6 +7,7 @@ from .models import Article
 
 
 class ArticlesIndexView(View):
+
     def get(self, request, *args, **kwargs):
         articles = Article.objects.all()[:15]
         return render(
@@ -17,6 +18,7 @@ class ArticlesIndexView(View):
 
 
 class ArticleView(View):
+
     def get(self, request, *args, **kwargs):
         article = get_object_or_404(Article, id=kwargs['id'])
         return render(
@@ -51,6 +53,7 @@ class ArticleFormCreateView(View):
 
 
 class ArticleFormEditView(View):
+
     def get(self, request, *args, **kwargs):
         article_id = kwargs.get('id')
         article = Article.objects.get(id=article_id)
@@ -74,3 +77,14 @@ class ArticleFormEditView(View):
             'articles/edit.html',
             {'form': form, 'article_id': article_id}
         )
+
+
+class ArticleDeleteView(View):
+
+    def post(self, request, *args, **kwargs):
+        article_id = kwargs.get('id')
+        article = Article.objects.get(id=article_id)
+        if article:
+            article.delete()
+            messages.success(request, 'Article has been deleted!')
+        return redirect('articles')
